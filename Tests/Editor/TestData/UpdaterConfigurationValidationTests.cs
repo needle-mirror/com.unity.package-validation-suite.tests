@@ -2,6 +2,8 @@ using System.IO;
 using NUnit.Framework;
 using UnityEditor.PackageManager.ValidationSuite.ValidationTests;
 using System.Linq;
+using Utilities;
+
 #if UNITY_2019_1_OR_NEWER
 
 namespace UnityEditor.PackageManager.ValidationSuite.Tests
@@ -22,7 +24,7 @@ namespace UnityEditor.PackageManager.ValidationSuite.Tests
 
         public UpdaterConfigurationValidationTests()
         {
-            testPackageRoot = Directory.GetDirectories(".", "CVAssemb", SearchOption.AllDirectories)[0];
+            testPackageRoot = Path.Combine(TestDataLocator.GetCurrentFileDirectory(), "CVAssemb");
         }
 
         [Test]

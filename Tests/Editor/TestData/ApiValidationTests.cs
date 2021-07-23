@@ -3,6 +3,7 @@ using System.IO;
 using UnityEditor.PackageManager.ValidationSuite.ValidationTests;
 using System.Collections.Generic;
 using System.Linq;
+using Utilities;
 #if UNITY_2018_1_OR_NEWER
 using UnityEditor.Compilation;
 using Debug = UnityEngine.Debug;
@@ -15,7 +16,7 @@ namespace UnityEditor.PackageManager.ValidationSuite.Tests
 
         public ApiValidationTests()
         {
-            testPackageRoot = Directory.GetDirectories(".", "AVAssemb", SearchOption.AllDirectories)[0];
+            testPackageRoot = Path.Combine(TestDataLocator.GetCurrentFileDirectory(), "AVAssemb");
         }
 
         [Test]

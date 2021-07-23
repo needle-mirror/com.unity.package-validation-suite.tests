@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using NUnit.Framework;
 using UnityEngine;
+using Utilities;
 
 namespace UnityEditor.PackageManager.ValidationSuite.Tests
 {
@@ -21,8 +22,7 @@ namespace UnityEditor.PackageManager.ValidationSuite.Tests
             Directory.CreateDirectory(testFolder);
             string zipFilePath;
 
-            var packageRootPaths = Directory.GetDirectories(".", "AsmdefWithTypeAdd", SearchOption.AllDirectories);
-            var packageRootPath = Path.GetFullPath(packageRootPaths[0]);
+            var packageRootPath = Path.Combine(TestDataLocator.GetCurrentFileDirectory(), "AVAssemb/AsmdefWithTypeAdd");
 
             Assert.IsTrue(PackageBinaryZipping.TryZipPackageBinaries(packageRootPath, "AsmdefWithTypeAdd", "0.1.0", testFolder, out zipFilePath), "ZipPackageBinaries failed");
 

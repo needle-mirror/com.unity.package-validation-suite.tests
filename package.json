@@ -1,11 +1,11 @@
 {
   "displayName": "Tests for Package Validation Suite",
   "name": "com.unity.package-validation-suite.tests",
-  "version": "0.4.0-preview.25",
+  "version": "0.4.0-preview.26",
   "type": "tests",
   "repository": {
     "type": "git",
     "url": "git@github.cds.internal.unity3d.com:unity/com.unity.package-validation-suite.git",
-    "revision": "07da2571778ab319334ded60ba52794ca6de0380"
+    "revision": "51b017e54f8bb15c921f871eabcaafcd752cf80c"
   }
 }
