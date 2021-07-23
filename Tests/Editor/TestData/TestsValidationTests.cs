@@ -14,29 +14,43 @@ namespace UnityEditor.PackageManager.ValidationSuite.Tests
 
         static TestsValidationTests()
         {
-            testPackageRoot = Path.Combine(TestDataLocator.GetCurrentFileDirectory(), "TestsValidationData");
+            testPackageRoot = Path.Combine(TestDataLocator.GetCurrentFileDirectory(), "TVData");
         }
 
         [Test]
-        public void FolderThatEndsWithTests_WithTests_Passes()
+        public void When_FolderEndsWithTests_WithTests_Passes()
         {
-            var validation = Validate("FolderThatEndsWithTests");
+            var validation = Validate("EndsWithTests");
             ExpectSuccess(validation);
         }
         
         [Test]
-        public void TestsFolder_WithTests_Passes()
+        public void When_TestsFolder_WithTests_Passes()
         {
             var validation = Validate("TestsFolder");
             ExpectSuccess(validation);
         }
 
         [Test]
-        public void NoTestsFolder_Fails()
+        public void When_CsFiles_NoTestsFolder_Fails()
         {
             List<string> messagesExpected = new List<string> { "Error: All Packages must include tests for automated testing.  No tests were found for this package." };
             var validation = Validate("NoTestsFolder");
             ExpectFailure(validation, messagesExpected);
+        }
+
+        [Test]
+        public void When_NoCsFiles_NoTestsFolder_Passes()
+        {
+            var validation = Validate("NoCsNoTestsFolder");
+            ExpectSuccess(validation);
+        }
+
+        [Test]
+        public void When_Tests_WithTestsInNestedFolders_Passes()
+        {
+            var validation = Validate("NestedTestFolder");
+            ExpectSuccess(validation);
         }
 
         static BaseValidation Validate(string testName)
