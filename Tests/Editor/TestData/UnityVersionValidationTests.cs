@@ -106,5 +106,26 @@ namespace UnityEditor.PackageManager.ValidationSuite.Tests
 
             Assert.AreEqual(TestState.Succeeded, unityVersionValidation.TestState);
         }
+        
+        [Test]
+        public void When_Package_UnityVersion_NotSet_Validation_Succeeds()
+        {
+            var projectPackageInfo = new VettingContext.ManifestData
+            {
+                name = "test"
+            };
+
+            var unityVersionValidation = new UnityVersionValidation();
+            var vettingContext = new VettingContext
+            {
+                ProjectPackageInfo = projectPackageInfo,
+                ValidationType = ValidationType.LocalDevelopment
+            };
+            unityVersionValidation.Context = vettingContext;
+            unityVersionValidation.Setup();
+            unityVersionValidation.RunTest();
+
+            Assert.AreEqual(TestState.Succeeded, unityVersionValidation.TestState);
+        }
     }
 }

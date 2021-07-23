@@ -16,7 +16,7 @@ namespace UnityEditor.PackageManager.ValidationSuite.Tests
         [SetUp]
         public void Setup()
         {
-            testDirectory = Path.Combine(Path.GetTempPath(), "tempAssemblyDefinitionValidationTests");
+            testDirectory = Path.Combine(Path.GetTempPath(), "tempAssemblyDefinitionValidationVetting");
             if (Directory.Exists(testDirectory))
             {
                 Directory.Delete(testDirectory, true);
