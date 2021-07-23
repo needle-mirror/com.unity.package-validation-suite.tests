@@ -6,42 +6,8 @@ using UnityEngine;
 
 namespace UnityEditor.PackageManager.ValidationSuite.Tests
 {
-    internal class MetaFilesValidationTests
+    internal class MetaFilesValidationTests : BaseValidationTestSuite
     {
-        private const string testDirectory = "tempMetaFileValidationTest";
-
-        [SetUp]
-        public void Setup()
-        {
-            if (Directory.Exists(testDirectory))
-            {
-                Directory.Delete(testDirectory, true);
-            }
-
-            Directory.CreateDirectory(testDirectory);
-        }
-
-        [TearDown]
-        public void TearDown()
-        {
-            if (Directory.Exists(testDirectory))
-            {
-                Directory.Delete(testDirectory, true);
-            }
-        }
-
-        private void CreateFileOrFolder(bool folder, string name, bool withMeta, string cwd = "")
-        {
-            var toCreatePath = Path.Combine(testDirectory, Path.Combine(cwd, name));
-            if (folder)
-                Directory.CreateDirectory(toCreatePath);
-            else
-                File.Create(toCreatePath).Dispose();
-
-            if (withMeta)
-                File.Create(toCreatePath + ".meta").Dispose();
-        }
-
         [Test]
         public void When_File_Meta_Missing_Validation_Fails()
         {

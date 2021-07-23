@@ -236,7 +236,7 @@ namespace UnityEditor.PackageManager.ValidationSuite.Tests
                 }
             }
 
-            var apiValidationAssemblyInformation = new ApiValidationAssemblyInformation(isPreviousPackageTest, isProjectPackageTest, "TestPackage", "TestPackage");
+            var apiValidationAssemblyInformation = new ValidationAssemblyInformation(isPreviousPackageTest, isProjectPackageTest, "TestPackage", "TestPackage");
             var apiValidation = new ApiValidation(apiValidationAssemblyInformation)
             {
                 Context = new VettingContext()
